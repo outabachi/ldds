@@ -1,0 +1,357 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Page 2 cachée au début */
+#page2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F5EDE3;
+    opacity: 0;
+    transition: opacity;
+}
+
+/* Lorsque la transition commence */
+.active {
+    opacity: 1 !important;
+}
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #7B121B;
+}
+
+header ul {
+    display: flex;
+}
+
+header li {
+    color: #7B121B;
+    margin-right: 4vw;
+}
+
+a {
+    text-decoration: none;
+    color: #7B121B;
+    font-family: "rafaella", sans-serif;
+}
+
+#logo {
+    margin-left: 4vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+nav img {
+    width: 2vw;
+}
+
+.text-hover {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-hover:hover {
+    animation: hoverUp 0.6s ease-in-out forwards;
+}
+
+.text-hover1 {
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-hover1:hover {
+    transform: translate(-10px, -10px);
+    /* Monte en haut à gauche */
+}
+
+.text-hover1:not(:hover) {
+    transform: translate(0, 0);
+    /* Retour à la position initiale */
+}
+
+@keyframes hoverUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(-12px);
+    }
+}
+
+.text-hover:not(:hover) {
+    animation: hoverDown 0.6s ease-in-out;
+}
+
+@keyframes hoverDown {
+    0% {
+        transform: translateY(-12px);
+    }
+
+    30% {
+        transform: translateY(5px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.text-hover2 {
+    opacity: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-hover1:hover .text-hover2 {
+    animation: rotateBounce 0.4s ease-out;
+    opacity: 1;
+}
+
+
+@keyframes rotateBounce {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    /* Va un peu plus loin */
+    75% {
+        transform: rotate(5deg);
+    }
+
+    /* Revient légèrement */
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #7B121B;
+    font-family: "rafaella-shadow", sans-serif;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 22vw;
+    padding-right: 22vw;
+}
+
+#menu div {
+    width: 13vw;
+    height: 70vh;
+    position: relative;
+}
+
+.menu-img {
+    width: 100%;
+    /* L'image prend toute la largeur de la div */
+    height: 100%;
+    /* L'image prend toute la hauteur de la div */
+    object-fit: cover;
+    border-radius: 15px;
+    z-index: 1;
+}
+#menu .fleur {
+    position: absolute;
+    z-index: 2;
+    width: 11vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+}
+.fleur-rouge {
+    position: absolute;
+    z-index: 1;
+    width: 11vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+    opacity: 0;
+    
+}
+/* Survol : Effet de rotation immédiat */
+#menu .fleur:hover {
+    animation: rotateStable 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+/* Quand la souris part, retour à la normale */
+#menu .fleur:not(:hover) {
+    animation: retourNormal 0.4s ease-out forwards;
+    opacity: 1;
+}
+#menu .fleur:hover ~ .fleur-rouge {
+    animation: rotateStable 0.4s ease-out forwards;
+    opacity: 1;
+}
+
+/* Quand la souris part, retour à la normale */
+#menu .fleur:not(:hover) ~ .fleur-rouge {
+    animation: retourNormal 0.4s ease-out forwards;
+    opacity: 0;
+}
+#menu .fleur:hover ~ a {
+    color: white;
+}
+
+/* Quand la souris part, retour à la normale */
+#menu .fleur:not(:hover) ~ a{
+    color: #7B121B;
+}
+
+@keyframes rotateStable {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) rotate(18deg); }
+    50% { transform: translate(-50%, -50%) rotate(8deg);  }
+    100% { transform: translate(-50%, -50%) rotate(19deg); }
+}
+
+@keyframes retourNormal {
+    0% { transform: translate(-50%, -50%) rotate(15deg); }
+    50% { transform: translate(-50%, -50%) rotate(-5deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+#menu a{
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1vw;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 7vh;
+    background-color: #7B121B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    box-sizing: border-box;
+}
+footer ul{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+footer li{
+    display: flex;
+    align-items: center;
+}
+footer p{
+    color: white;
+}
+footer a{
+    color: white;
+}
+footer img{
+    width: 1.5vw;
+    vertical-align: middle; 
+}
+
+@keyframes slideDown {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100vh); 
+    }
+  }
+  @keyframes slideDown1 {
+    from {
+      transform: translateY(-100vh);
+    }
+    to {
+      transform: translateY(0); 
+    }
+  }
+  
+  .moving-div {
+    animation: slideDown 1s ease-out forwards;
+  }
+  .moving-div1 {
+    animation: slideDown1 1s ease-out forwards;
+  }
+  @keyframes slideRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100vW); 
+    }
+  }
+  @keyframes slideRight1 {
+    from {
+      transform: translateX(-100vW);
+    }
+    to {
+      transform: translateX(0); 
+    }
+  }
+  
+  .moving-div2 {
+    animation: slideRight 1s ease-out forwards;
+  }
+  .moving-div3 {
+    animation: slideRight1 1s ease-out forwards;
+  }
+  #pages{
+    position: relative;
+  }
+  #page2section{
+    position: absolute;
+  }
+  #apropossection{
+    position: absolute;
+    z-index: -1;
+  }

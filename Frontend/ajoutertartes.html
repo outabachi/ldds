@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Frontend/ajoutertartes.css">
+</head>
+<body>
+    <h1>Ajouter une patisserie</h1>
+
+  <form action="http://localhost:4000/api/stuff"
+      method="POST"
+      enctype="multipart/form-data">
+
+  <input type="text" name="title" placeholder="Titre" required><br><br>
+
+  <input type="text" name="description" placeholder="Description" required><br><br>
+
+  <input type="text" name="ingredients" placeholder="Ingrédients" required><br><br>
+
+  <input type="text" name="preparation" placeholder="Préparation" required><br><br>
+
+  <input type="file" name="image" required><br><br>
+
+  <button type="submit">Envoyer</button>
+</form>
+</body>
+</html>
