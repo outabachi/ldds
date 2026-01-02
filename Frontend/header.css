@@ -1,0 +1,165 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #F5EDE3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* Lorsque la transition commence */
+.active {
+    opacity: 1 !important;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    height: 8vh;
+}
+
+h1 {
+    color: #7B121B;
+}
+
+header ul {
+    display: flex;
+}
+
+header li {
+    color: #7B121B;
+    margin-right: 4vw;
+}
+
+a {
+    text-decoration: none;
+    color: #7B121B;
+    font-family: "rafaella", sans-serif;
+}
+
+#logo {
+    margin-left: 4vw;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+nav {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+nav img {
+    width: 2vw;
+}
+
+.text-hover {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-hover:hover {
+    animation: hoverUp 0.6s ease-in-out forwards;
+}
+
+.text-hover1 {
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.text-hover1:hover {
+    transform: translate(-10px, -10px);
+    /* Monte en haut à gauche */
+}
+
+.text-hover1:not(:hover) {
+    transform: translate(0, 0);
+    /* Retour à la position initiale */
+}
+
+@keyframes hoverUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(-12px);
+    }
+}
+
+.text-hover:not(:hover) {
+    animation: hoverDown 0.6s ease-in-out;
+}
+
+@keyframes hoverDown {
+    0% {
+        transform: translateY(-12px);
+    }
+
+    30% {
+        transform: translateY(5px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.text-hover2 {
+    opacity: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-hover1:hover .text-hover2 {
+    animation: rotateBounce 0.4s ease-out;
+    opacity: 1;
+}
+
+
+@keyframes rotateBounce {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    /* Va un peu plus loin */
+    75% {
+        transform: rotate(5deg);
+    }
+
+    /* Revient légèrement */
+    100% {
+        transform: rotate(15deg);
+    }
+}
